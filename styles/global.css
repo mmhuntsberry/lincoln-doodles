@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "./variables.css";
+/* @import "./typography.css"; */
+
+@layer base {
+  [data-nextjs-scroll-focus-boundary] {
+    display: contents;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+[data-nextjs-scroll-focus-boundary] {
+  display: contents;
+}
+
+
+
+body {
+  background-color: var(--color-primary);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+
+
+
+

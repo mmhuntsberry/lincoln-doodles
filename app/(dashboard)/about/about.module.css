@@ -1,0 +1,43 @@
+.page {
+  height: calc(100% - 48px);
+
+  /* animation-duration: 10s;
+animation-timing-function: ease-in-out;
+animation-iteration-count: infinite; */
+}
+
+.bg {
+
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.text-container {
+  min-width: 250px;
+}
+
+@media screen and (min-width: 768px) {
+  .bg {
+    background-image: url(../../../assets/sloeg.png);
+    background-size: 200px;
+
+    background-position: bottom right 20px;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    animation-name: MOVE-BG;
+  }
+  .container {
+    flex-direction: row;
+    align-items: initial;
+  }
+}

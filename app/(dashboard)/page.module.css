@@ -1,0 +1,33 @@
+.home {
+  height: 100%;
+  height: calc(100% - 48px);
+}
+
+.bg {
+  background-image: url(../../assets/kingfish.png);
+  background-size: 500px;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  animation-name: MOVE-BG;
+  /* animation-duration: 10s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite; */
+}
+
+
+
+@keyframes MOVE-BG {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(187%);
+  }
+}

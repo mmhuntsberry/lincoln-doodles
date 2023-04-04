@@ -1,0 +1,81 @@
+.heading {
+  font-family: var(--font-gaegu);
+  font-weight: regular;
+}
+
+.heading-1 {
+  composes: heading;
+  font-size: 64px;
+  letter-spacing: -0.5%;
+  
+}
+
+.heading-2 {
+  composes: heading;
+  font-size: 48px;
+  letter-spacing: -0.25%;
+}
+
+.heading-3 {
+  composes: heading;
+  font-size: 40px;
+  letter-spacing: 0;
+}
+
+.heading-4 {
+  composes: heading;
+  font-size: 32px;
+  letter-spacing: 0.25%;
+}
+
+.heading-5 {
+  composes: heading;
+  font-size: 24px;
+  letter-spacing: 0%;
+}
+
+.heading-6 {
+  composes: heading;
+  font-size: 20px;
+  letter-spacing: -0.15%;
+}
+
+.body {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  letter-spacing: .25%;
+}
+
+.body-1 {
+  composes: body;
+  letter-spacing: .5%;
+  line-height: 48px;
+  font-size: 32px;
+}
+
+.body-2 {
+  composes: body;
+  line-height: 36px;
+  font-size: 24px;
+  font-weight: regular;
+}
+
+.body-3 {
+  composes: body;
+  line-height: 30px;
+  font-size: 20px;
+  font-weight: regular;
+}
+
+.body-4 {
+  composes: body;
+  line-height: 22px;
+  font-size: 16px;
+  font-weight: regular;
+}
+
+.body-5 {
+  composes: body;
+  font-size: 14px;
+  font-weight: regular;
+}
+
