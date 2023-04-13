@@ -1,82 +1,42 @@
-"use client";
+// "use client";
 import clsx from "clsx";
-import { FC } from "react";
-import typography from "@/styles/typography.module.css";
+
 import styles from "./navigation.module.css";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import Link from "./Link";
+import { cookies } from "next/headers";
+import Signout from "./Signout";
 
 const Navigation = () => {
-  const pathname = usePathname();
+  const cookieStore = cookies();
+  const user = cookieStore.get(process.env.COOKIE_NAME ?? "");
+
   return (
     <nav className={styles["nav"]}>
       <ul className={clsx(styles["ul"], "")}>
         <li className={styles["li"]}>
-          <Link
-            className={`${
-              pathname === "/" &&
-              "underline underline-offset-4 decoration-orange-200"
-            }`}
-            href="/"
-          >
-            Home
-          </Link>
+          <Link href="/">home</Link>
         </li>
         <li className={styles["li"]}>
-          <Link
-            className={`${
-              pathname === "/about" &&
-              "underline underline-offset-4 decoration-orange-200"
-            }`}
-            href="/about"
-          >
-            About
-          </Link>
+          <Link href="/about">about</Link>
         </li>
         <li className={styles["li"]}>
-          <Link
-            className={`${
-              pathname === "/doodles" &&
-              "underline underline-offset-4 decoration-orange-200"
-            }`}
-            href="/doodles"
-          >
-            Doodles
-          </Link>
+          <Link href="/doodles">doodles</Link>
         </li>
-        <li className={styles["li"]}>
-          <Link
-            className={`${
-              pathname === "/sell" &&
-              "underline underline-offset-4 decoration-orange-200"
-            }`}
-            href="/sell"
-          >
-            Sell
-          </Link>
-        </li>
-        <li className={styles["li"]}>
-          <Link
-            className={`${
-              pathname === "/orders" &&
-              "underline underline-offset-4 decoration-orange-200"
-            }`}
-            href="/orders"
-          >
-            Orders
-          </Link>
-        </li>
-        <li className={styles["li"]}>
-          <Link
-            className={`${
-              pathname === "/signout" &&
-              "underline underline-offset-4 decoration-orange-200"
-            }`}
-            href="/signout"
-          >
-            Sign Out
-          </Link>
-        </li>
+        {!!user && (
+          <li className={styles["li"]}>
+            <Link href="/create-doodle">sell</Link>
+          </li>
+        )}
+        {!user && (
+          <li className={styles["li"]}>
+            <Link href="/signin">sign in</Link>
+          </li>
+        )}
+        {!!user && (
+          <li className={styles["li"]}>
+            <Signout />
+          </li>
+        )}
       </ul>
     </nav>
   );

@@ -20,6 +20,10 @@ export default async function middleware(req: NextRequest, res: NextResponse) {
     pathname.startsWith("/static") ||
     pathname.startsWith("/signin") ||
     pathname.startsWith("/signup") ||
+    pathname.startsWith("/about") ||
+    pathname === "/" ||
+    pathname.startsWith("/doodles") ||
+    pathname.startsWith("/doodle") ||
     PUBLIC_FILE.test(pathname)
   ) {
     return NextResponse.next();

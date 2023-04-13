@@ -1,24 +1,37 @@
-// import { delay } from "@/lib/async";
-import { getUserFromCookie } from "@/lib/auth";
 import { db } from "@/lib/db";
-import { cookies } from "next/headers";
-import Link from "next/link";
-import { Suspense } from "react";
+import Image from "next/image";
 
-export default async function Page() {
+const getData = async (id: string) => {
+  const doodle = await db.doodle.findFirst({
+    where: { id },
+  });
+
+  return doodle;
+};
+
+interface Props {
+  params: {
+    id: string;
+  };
+}
+
+export default async function ProjectPage({ params }: Props) {
+  const doodle = await getData(params.id);
+
   return (
     <div className="h-full overflow-y-auto pr-6 w-1/1">
-      <div className=" h-full  items-stretch justify-center min-h-[content]">
-        <div className="flex-1 grow flex">{/** greetings here */}</div>
-        <div className="flex flex-2 grow items-center flex-wrap mt-3 -m-3 ">
-          {/** projects map here */}
-          <div className="w-1/3 p-3">{/* new project here */}</div>
-        </div>
-        <div className="mt-6 flex-2 grow w-full flex">
-          <div className="w-full">{/* tasks here */}</div>
-          huya
-        </div>
-      </div>
+      {/* <TaskCard tasks={project.tasks} title={project.name} /> */}
+      <Image
+        width="200"
+        height="200"
+        style={{ height: "50%", width: "50%", objectFit: "contain" }}
+        src={`https://res.cloudinary.com/mattthebunny/image/upload/v1661724362/lincoln-doodles/${doodle?.doodleId}.png`}
+        // sizes="100vw"
+        alt={doodle?.name ?? ""}
+      />
+      <h2>{doodle?.name}</h2>
+      <p>{doodle?.description}</p>
+      <span>{doodle?.price}</span>
     </div>
   );
 }

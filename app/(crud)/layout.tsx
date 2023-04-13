@@ -1,4 +1,4 @@
-import { FC, useContext } from "react";
+import { FC } from "react";
 import localFont from "@next/font/local";
 import "@/styles/global.css";
 import Header from "@/components/Header";
@@ -23,11 +23,11 @@ const gaegu = localFont({
   variable: "--font-gaegu",
 });
 
-interface AuthRootLayoutProps {
+interface DoodleRootLayoutProps {
   children: React.ReactNode;
 }
 
-const AuthRootLayout: FC<AuthRootLayoutProps> = ({ children }) => {
+const DoodleRootLayout: FC<DoodleRootLayoutProps> = ({ children }) => {
   return (
     <html lang="en">
       <head />
@@ -42,4 +42,4 @@ const AuthRootLayout: FC<AuthRootLayoutProps> = ({ children }) => {
   );
 };
 
-export default AuthRootLayout;
+export default DoodleRootLayout;

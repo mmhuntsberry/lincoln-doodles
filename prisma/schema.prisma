@@ -31,6 +31,7 @@ model Doodle {
   description String? @db.Text
   doodleId    String
   doodleDir   String
+  price       String
 
   ownerId String
   owner   User    @relation(fields: [ownerId], references: [id])
